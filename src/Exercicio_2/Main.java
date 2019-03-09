@@ -4,7 +4,6 @@ import java.util.ArrayList;
 
 public class Main {
     private static Scanner leitor;
-
 	public static void main (String args[]) {
         int option;
         int repetidor = 0;
@@ -23,6 +22,7 @@ public class Main {
                 case 1:
                     pessoa = pessoa.addPessoa();
                     lista.add(pessoa);
+                    System.out.println("Pessoa Cadastrada com Sucesso!");
                     break;
                 case 2:
                     System.out.println("Digite o numero do elemento ");

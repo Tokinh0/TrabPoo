@@ -39,8 +39,10 @@ public class Pessoa {
     }
     
     void showALL() {
+    	System.out.println("-------------------------------------------------------------");
         System.out.println("Nome: "+ this.nome);
         System.out.println("Idade: "+ this.idade);
         System.out.println("Sexo: "+ this.sexo);
+        System.out.println("-------------------------------------------------------------");
     }
 }
