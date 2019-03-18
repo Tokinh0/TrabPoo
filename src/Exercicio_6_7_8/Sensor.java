@@ -38,11 +38,11 @@ public class Sensor {
 		sensor.setEstado(false);
 	}
 	
-	public void ativarSensor() {
+	public void ativarSensor(Sensor sensor) {
 		this.status = true;
 	}
 	
-	public void desativarSensor() {
+	public void desativarSensor(Sensor sensor) {
 		this.status = false;
 	}
 }
