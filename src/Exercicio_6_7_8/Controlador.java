@@ -68,7 +68,12 @@ public class Controlador {
 	
 	public void printStatusSensores(ArrayList<Sensor> sensores) {
 		for(Sensor sensor: sensores) {
-			System.out.println("Sensor " + sensor.getId() + " Ligado");
+			if(sensor.isEstado()) {
+				System.out.println("Sensor " + sensor.getId() + " Ligado");
+			}else {
+				System.out.println("Sensor " + sensor.getId() + " Desligado");
+			}
+			
 		}
 	}
 	
@@ -91,10 +96,7 @@ public class Controlador {
 			if(sensor.getId() == id_sensor) {
 				sensor.ligarSensor(sensor);
 				System.out.println("Sensor ligado...");
-			}else {
-				System.out.println("Sensor nao encontrado ou inexistente!");
 			}
-			
 		}
 	}
 	
@@ -103,10 +105,7 @@ public class Controlador {
 			if(sensor.getId() == id_sensor) {
 				sensor.desligarSensor(sensor);
 				System.out.println("Sensor desligado...");
-			}else {
-				System.out.println("Sensor nao encontrado ou inexistente!");
-			}
-			
+			}	
 		}
 	}
 }
