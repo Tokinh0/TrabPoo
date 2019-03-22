@@ -1,15 +1,26 @@
 package Exercicio_6_7_8;
 import java.util.ArrayList;
+import java.util.Timer;
+import java.util.TimerTask;
 
-import Exercicio_6_7_8.Sensor;
 
 public class Controlador {
+	
 	private int qtdSensores = 9;  
 	private Sistema sistema = new Sistema();
 	private Sensor sensor = new Sensor(0, false, false);
 	private ArrayList<Sensor> sensores = new ArrayList<Sensor>();
 	private Sirene sirene = new Sirene();
+	public Timer timer;
 	
+	public Sirene getSirene() {
+		return sirene;
+	}
+
+	public void setSirene(Sirene sirene) {
+		this.sirene = sirene;
+	}
+
 	public Sensor getSensor() {
 		return sensor;
 	}
@@ -61,6 +72,13 @@ public class Controlador {
 			ligarTodosSensores(sensores);
 			System.out.println("Sistema Iniciado...");
 			System.out.println("Sensores Ligados...");
+			timer = new Timer();
+			TimerTask check = new TimerTask() {
+				public void run() {
+					checarSensores(sensores);
+				}
+			};
+			this.timer.schedule(check, 1000, 1000);
 		}else {
 			System.out.println("Senha invalida");
 		}
@@ -90,6 +108,7 @@ public class Controlador {
 			
 		}
 	}
+    
 	
 	public void checarSensor(int id_sensor, ArrayList<Sensor> sensores) {
 		for(Sensor sensor: sensores) {
